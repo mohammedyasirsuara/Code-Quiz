@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Quiz: General Knowledge</title>
 </head>
+
 <body>
     <header>
-        <nav class = "navbar navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light">
             <!--button to open highscores-->
-            <button type="button" class="btn btn-info" id="hs">View Highscore</button>
-            
+            <a href="highscore.html" type="button" class="btn btn-info" >View Highscore</a>
+
             <!--display time-->
             <div class="float-right mr-3 bg-danger" id="timeCount">
                 Time: <span id="timeLeft"></span>
@@ -23,9 +26,11 @@
     <div class="container" style="margin-left: 0px;">
         <!--Start Page-->
         <section id="start-page">
-            <h1>General Knowledge Quiz</h1>
+            <h2>General Knowledge Quiz</h2>
             <div>
+                <hr>
                 <p>Welcome to the place where your general knowledge is tested!!</p>
+                <hr>
             </div>
             <p>Click the button bellow to begin.</p>
             <button type="button" class="btn btn-primary" id="start-btn">Start!</button>
@@ -33,25 +38,24 @@
 
         <!--Question Page-->
         <section id="question-page">
-            <h2 id="Question">Question: </h2><hr>
+            <h2 id="Question">Question: </h2>
+            <hr>
             <ul id="options">
-                <li><button class="btn btn-primary btn-lg" id="btn0">Answer1</button></li>
-                <li><button class="btn btn-primary btn-lg" id="btn1">Answer2</button></li>
-                <li><button class="btn btn-primary btn-lg" id="btn2">Answer3</button></li>
-                <li><button class="btn btn-primary btn-lg" id="btn3">Answer4</button></li>
+
             </ul>
             <hr>
             <div id="correct"></div>
-        </section> 
+        </section>
 
         <!--Summary Page-->
-        <section id="summary-page">
-            <h2>Your final score is: <span id="total-score"></span></h2>
-            <form>
+        <section id="end-page">
+            <h3>Your final score is: <span id="score"></span> out of <span id="qLength"></span></h3>
+            <hr>
+            <form id="userInfo">
                 <label for="info">Enter name:</label>
-                <input type="text" name="info" id="info">
+                <input type="text" name="uName" id="info">
                 <div>
-                    <button type="button" class="btn btn-success btn-md">Submit</button>
+                    <button type="button" class="btn btn-success btn-md" id="submitbtn">Submit</button>
                 </div>
             </form>
         </section>
@@ -59,4 +63,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

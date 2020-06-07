@@ -1,7 +1,7 @@
 
-#question-page{
+#question-page, #end-page{
    display: none;
 }
-#summary-page{
-    display: none;
+#options{
+    list-style-type: none;
  }
