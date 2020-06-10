@@ -1,7 +1,6 @@
 let score = 0;
 let qindex = 0;
-var quizQuestions = [
-    {
+var quizQuestions = [{
         question: "What is 5*5+2?",
         answers: [
             '27',
@@ -49,7 +48,7 @@ let timeLeft = 50;
 var timer;
 
 function startTime() {
-    timer = setInterval(function () {
+    timer = setInterval(function() {
         timeLeft--;
         if (timeLeft === 0) {
             alert("Time up");
@@ -61,7 +60,7 @@ function startTime() {
 }
 
 //Event handler for when start button is clicked
-$("#start-btn").on('click', function (event) {
+$("#start-btn").on('click', function(event) {
     event.preventDefault();
     $("#start-page").hide();
     startTime();
@@ -76,7 +75,7 @@ function displayQuestions() {
     $("#Question").text(q.question);
     for (var i = 0; i < q.answers.length; i++) {
         let button = $("<button class='btn btn-primary btn-md m-1'></button>");
-        button.css('list-style-type', 'square');
+        button.addClass("button-comp");
         button.attr("value", q.answers[i]);
         button.text(q.answers[i]);
         button.click(check);
@@ -119,30 +118,30 @@ function endQuiz() {
 //function to save the highscore
 function saveScore() {
     let hscore = JSON.parse(localStorage.getItem("Highscore"));
-    let name=$("#info").val()
+    let name = $("#info").val()
     let uScore = score
 
-    if(hscore==null){
-        hscore=[];
+    if (hscore == null) {
+        hscore = [];
     }
     let info = {
         userName: name,
         userScore: uScore
     };
 
-        hscore.push(info);
-        hscore.sort((a,b)=>b.userScore-a.userScore);
-        localStorage.setItem('Highscore', JSON.stringify(hscore));
-        window.location.replace("highscore.html")
-    
+    hscore.push(info);
+    hscore.sort((a, b) => b.userScore - a.userScore);
+    localStorage.setItem('Highscore', JSON.stringify(hscore));
+    window.location.replace("highscore.html")
+
 }
 
-$("#submitbtn").on('click', function (e){
+$("#submitbtn").on('click', function(e) {
     e.preventDefault();
     saveScore();
 })
 
-$("#userInfo").on("submit", function(e){
+$("#userInfo").on("submit", function(e) {
     e.preventDefault();
     saveScore();
 })

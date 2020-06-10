@@ -1,7 +1,33 @@
-
-#question-page, #end-page{
-   display: none;
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+body {
+    background-color: snow;
 }
-#options{
+
+#question-page,
+#end-page {
+    display: none;
+}
+
+#options {
     list-style-type: none;
- }
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.button-comp {
+    margin: 1px;
+    background-color: purple;
+    width: 100px;
+    border: 0px;
+    text-align: left;
+}
+
+
+/* Highscore styling */
+
+.data {
+    list-style-type: none;
+    margin-left: -30px;
+    font-size: 30px;
+    font-family: 'Sacramento', cursive;
+}

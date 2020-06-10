@@ -4,36 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Highscores</title>
 </head>
 
 <body>
-    <div class="highscoreL">
-        <h2>Highscore Page</h2>
-        <hr>    
-        <ul id="hsList" style="list-style-type: none;">
+    <div class="container" style="margin-left: 0px; padding-top: 10px;">
+        <div class="highscoreL">
+            <h3>Highscore Page</h3>
+            <hr>
+            <ul id="hsList" style="list-style-type: none;">
 
-        </ul> 
-        <a href="index.html" type="button" class="btn btn-primary">Play Again</a>  
-        <button id="clear" class="btn btn-danger">Clear Scores</button> 
+            </ul>
+            <a href="index.html" type="button" class="btn btn-primary">Play Again</a>
+            <button id="clear" class="btn btn-danger">Clear Scores</button>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             let hscore = JSON.parse(localStorage.getItem("Highscore"));
             console.log(hscore);
-            hscore.map(element=>{
+            hscore.map(element => {
                 var list = $("<li></li>")
-                list.text(element.userName+"-"+element.userScore);
+                list.addClass("data");
+                list.text(element.userName + " - " + element.userScore);
                 $("#hsList").append(list);
             });
         })
 
-        $("#clear").on('click', function(){
+        $("#clear").on('click', function() {
             localStorage.removeItem("Highscore");
             location.reload();
         })
